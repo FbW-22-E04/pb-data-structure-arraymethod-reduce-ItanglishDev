@@ -3,16 +3,27 @@
 //1
 
 let users = [
-  {id: 'john', name: "John Smith", age: 20},
-  {id: 'ann', name: "Ann Smith", age: 24},
-  {id: 'pete', name: "Pete Peterson", age: 31},
+  { id: 'john', name: "John Smith", age: 20 },
+  { id: 'ann', name: "Ann Smith", age: 24 },
+  { id: 'pete', name: "Pete Peterson", age: 31 },
 ];
 
-function groupById(array) {
-  //write your code here
-}
+// function groupById(array) {
+const userId = users.reduce((groupByName, details) => {
+  // console.log(groupByName);
+  // console.log(userId);
+  let identity = details.id
+  if (groupByName[identity] === undefined) groupByName[identity] = []
+  groupByName[identity].push(details);
 
-let usersById= groupById(users)
+  return groupByName;
+}, {})
+
+
+//write your code here
+// }
+
+let usersById = groupById(users)
 console.log(usersById)
 
 /* expected output: 
